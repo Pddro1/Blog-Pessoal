@@ -49,7 +49,7 @@ public class UsuarioService {
 	}
 	
 	public Optional<UsuarioLogin> autenticarUsuario(Optional<UsuarioLogin> usuarioLogin){
-		Optional<Usuario> usuario = usuarioRepository.findByUsuario(usuarioLogin.get().getSenha());
+		Optional<Usuario> usuario = usuarioRepository.findByUsuario(usuarioLogin.get().getUsuario());
 		
 		if(usuario.isPresent()) {
 			if(compararSenhas(usuarioLogin.get().getSenha(), usuario.get().getSenha())) {
